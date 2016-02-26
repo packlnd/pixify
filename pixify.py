@@ -8,8 +8,8 @@ from sklearn.utils import shuffle
 from time import time
 from scipy.misc import imread
 
-n_colors = 7
-pic = np.array(imread("pic.jpg"), dtype=np.float64) / 255
+n_colors = 10
+pic = np.array(imread("marcus.jpg"), dtype=np.float64) / 255
 w, h, d = original_shape = tuple(pic.shape)
 image_array = np.reshape(pic, (w * h, d))
 image_array_sample = shuffle(image_array, random_state=0)[:1000]
