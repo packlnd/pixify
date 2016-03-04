@@ -7,8 +7,21 @@ from sklearn.datasets import load_sample_image
 from sklearn.utils import shuffle
 from time import time
 from scipy.misc import imread
+import operator
+from numpy.random import normal
 
-n_colors = 10
+rgb = {} #rgb[[0,0,0] = 3
+n_colors = 30
+for row in np.array(imread("marcus.jpg")):
+    for color in row:
+        key = ','.join([str(c) for c in color.tolist()])
+        rgb[key] = rgb[key]+1 if key in rgb else 0
+
+sorted_rgb = sorted(rgb.items(), key=operator.itemgetter(1))
+for k,v in sorted_rgb:
+    if v > 0:
+        print k,"=",v
+
 pic = np.array(imread("marcus.jpg"), dtype=np.float64) / 255
 w, h, d = original_shape = tuple(pic.shape)
 image_array = np.reshape(pic, (w * h, d))
