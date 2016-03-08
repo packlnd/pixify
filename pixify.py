@@ -10,6 +10,8 @@ from scipy.misc import imread
 import operator
 from numpy.random import normal
 
+#TODO Switch from k-means clustering to http://keras.io/
+
 rgb = {} #rgb[[0,0,0] = 3
 n_colors = 30
 for row in np.array(imread("marcus.jpg")):
